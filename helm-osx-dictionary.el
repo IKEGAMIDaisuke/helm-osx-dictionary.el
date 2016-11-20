@@ -71,8 +71,10 @@
     (cond ((stringp output-parsed)
     	   (list output-parsed))
     	  ((listp output-parsed)
-	   (append (nth 2 output-parsed)
-		   (nth 3 output-parsed)))
+	   (append
+	    (car output-parsed)
+	    (nth 2 output-parsed)
+	    (nth 3 output-parsed)))
     	  (t
     	   (list helm-pattern)))
     )
