@@ -33,9 +33,22 @@
   "Run helm-osx-lookup."
   (interactive)
   (helm
-   :sources '(helm-osx-dictionary--get-source-by-aspell)
+   :sources '(
+	      helm-osx-dictionary--exact-name
+	      helm-osx-dictionary--get-source-by-aspell
+	      )
    :buffer "*Helm Dictionary.app*"
    :prompt "Word: ")
+  )
+
+(defvar helm-osx-dictionary--exact-name
+  (helm-build-sync-source
+      "[?]"
+    :candidates #'(lambda () (list (propertize helm-pattern))) ;; #'foo
+    :action #'helm-osx-dictionary--search
+    :volatile t
+    )
+  "The source of exact matching pattern."
   )
 
 (defvar helm-osx-dictionary--get-source-by-aspell
