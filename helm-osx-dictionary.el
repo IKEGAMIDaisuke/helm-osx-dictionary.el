@@ -64,20 +64,17 @@
 	     ispell-program-name t t nil "-a" "--guess")
 	    (buffer-string)))
 	 (output-raw (split-string output-all "\n"))
-	 (output-parsed)
-	 (candidates ()))
+	 (output-parsed
+	  (ispell-parse-output (nth 1 output-raw)))
+	 )
     ;; parse the output
-    (pop output-raw)
-    (setq output-parsed (ispell-parse-output (pop output-raw)))
     (cond ((stringp output-parsed)
-	   (setq candidates (list output-parsed)))
-	  ((listp output-parsed)
-	   (setq candidates
-		 (append (nth 2 output-parsed)
-			 (nth 3 output-parsed))))
-	  (t
-	   (setq candidates (list helm-pattern))))
-    candidates
+    	   (list output-parsed))
+    	  ((listp output-parsed)
+	   (append (nth 2 output-parsed)
+		   (nth 3 output-parsed)))
+    	  (t
+    	   (list helm-pattern)))
     )
   )
 
