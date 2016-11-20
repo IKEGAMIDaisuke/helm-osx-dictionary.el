@@ -63,9 +63,9 @@
 	 (output-all
 	  (with-temp-buffer
 	    (insert helm-pattern)
-	    (call-process-region (point-min) (point-max)
-				 command-name t t nil "-a" "--guess"
-				 helm-source-name)
+	    (call-process-region
+	     (point-min) (point-max)
+	     command-name t t nil "-a" "--guess")
 	    (buffer-string)))
 	 (output-raw (split-string output-all "\n"))
 	 (output-parsed)
