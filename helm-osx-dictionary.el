@@ -56,16 +56,12 @@
 ;;
 (defun helm-osx-dictionary--get-candidates-by-aspell ()
   "Return candidates for a word by `aspell'."
-  (let* ((command-name
-	  (if ispell-program-name
-	      ispell-program-name
-	    "aspell"))
-	 (output-all
+  (let* ((output-all
 	  (with-temp-buffer
 	    (insert helm-pattern)
-	    (call-process-region
+	    (ispell-call-process-region
 	     (point-min) (point-max)
-	     command-name t t nil "-a" "--guess")
+	     ispell-program-name t t nil "-a" "--guess")
 	    (buffer-string)))
 	 (output-raw (split-string output-all "\n"))
 	 (output-parsed)
