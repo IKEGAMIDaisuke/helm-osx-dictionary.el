@@ -76,7 +76,9 @@
     (cond ((stringp output-parsed)
 	   (setq candidates (list output-parsed)))
 	  ((listp output-parsed)
-	   (setq candidates (nth 2 output-parsed)))
+	   (setq candidates
+		 (append (nth 2 output-parsed)
+			 (nth 3 output-parsed))))
 	  (t
 	   (setq candidates (list helm-pattern))))
     candidates
