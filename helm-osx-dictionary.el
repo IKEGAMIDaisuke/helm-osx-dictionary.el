@@ -43,6 +43,7 @@
       "Candidates by aspell."
       :candidates #'helm-osx-dictionary--get-candidates-by-aspell
       :action #'helm-osx-dictionary--search
+      :fuzzy-match t
       :volatile t
       )
   "Build sources by the interactive spell checker `aspell'."
