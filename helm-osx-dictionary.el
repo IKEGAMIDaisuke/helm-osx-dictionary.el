@@ -34,14 +34,14 @@
   (interactive)
   (helm
    :sources '(
-	      helm-osx-dictionary--exact-name
-	      helm-osx-dictionary--get-source-by-aspell
+	      helm-osx-dictionary--source-exact-name
+	      helm-osx-dictionary--sources-by-aspell
 	      )
    :buffer "*Helm Dictionary.app*"
    :prompt "Word: ")
   )
 
-(defvar helm-osx-dictionary--exact-name
+(defvar helm-osx-dictionary--source-exact-name
   (helm-build-sync-source
       "[?]"
     :candidates #'(lambda () (list (propertize helm-pattern))) ;; #'foo
@@ -51,7 +51,7 @@
   "The source of exact matching pattern."
   )
 
-(defvar helm-osx-dictionary--get-source-by-aspell
+(defvar helm-osx-dictionary--sources-by-aspell
   (helm-build-sync-source
       "Candidates by aspell."
       :candidates #'helm-osx-dictionary--get-candidates-by-aspell
