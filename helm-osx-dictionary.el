@@ -63,7 +63,7 @@
 ;;
 (defun helm-osx-dictionary--get-candidates-by-aspell ()
   "Return candidates for a word by `aspell'."
-  (let* ((output-all
+  (let* ((lines
 	  (with-temp-buffer
 	    (insert helm-pattern)
 	    (ispell-set-spellchecker-params)
@@ -71,14 +71,15 @@
 	     (point-min) (point-max)
 	     ispell-program-name t t nil "-a" "--guess")
 	    (buffer-string)))
-	 (output-raw (split-string output-all "\n"))
-	 (output-parsed
-	  (ispell-parse-output (nth 1 output-raw)))
-	 )
-    ;; parse the output
-    (cond ((stringp output-parsed)
-    	   (list output-parsed))
-    	  ((listp output-parsed)
+	 (output (nth 1 (split-string lines "\n")))
+	 (result
+	  ;; prevent annoying messages
+	  ;; see also the definition of 'ispell-parse-output
+	  (when (not (equal 0 (string-match "[\ra-zA-Z]" output)))
+	    (ispell-parse-output output))))
+    (cond ((stringp result)
+    	   (list result))
+    	  ((listp result)
 	   (append
 	    (car output-parsed)
 	    (nth 2 output-parsed)
