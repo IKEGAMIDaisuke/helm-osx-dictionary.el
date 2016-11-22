@@ -44,7 +44,7 @@
 (defvar helm-osx-dictionary--source-exact-name
   (helm-build-sync-source
       "[?]"
-    :candidates #'(lambda () (list (propertize helm-pattern))) ;; #'foo
+    :candidates #'(lambda () (list (propertize helm-pattern)))
     :action #'helm-osx-dictionary--search
     :volatile t
     )
