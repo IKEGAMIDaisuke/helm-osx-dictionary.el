@@ -66,6 +66,7 @@
   (let* ((output-all
 	  (with-temp-buffer
 	    (insert helm-pattern)
+	    (ispell-set-spellchecker-params)
 	    (ispell-call-process-region
 	     (point-min) (point-max)
 	     ispell-program-name t t nil "-a" "--guess")
