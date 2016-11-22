@@ -62,10 +62,8 @@
   "Build sources by the interactive spell checker `aspell'."
   )
 
-;; the following code snippet (the parser)
-;; 'helm-osx-lookup--get-candidates-by-aspell
-;; has been developed by helm-words former
-;; See 'helm-words--get-candidates
+;; I learned how to get candidates (guess words) by aspell
+;; from 'helm-words--get-candidates in helm-words
 ;; https://github.com/pronobis/helm-words/
 ;;
 (defun helm-osx-dictionary--get-candidates-by-aspell ()
