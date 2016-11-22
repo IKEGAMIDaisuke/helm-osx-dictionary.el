@@ -81,13 +81,10 @@
     	   (list result))
     	  ((listp result)
 	   (append
-	    (car output-parsed)
-	    (nth 2 output-parsed)
-	    (nth 3 output-parsed)))
-    	  (t
-    	   (list helm-pattern)))
-    )
-  )
+	    (car result)
+	    (nth 2 result)
+	    (nth 3 result)))
+    	  (t (list helm-pattern)))))
 
 (defun helm-osx-dictionary--search (word)
   "Look up the given word."
