@@ -38,18 +38,15 @@
 	      helm-osx-dictionary--sources-by-aspell
 	      )
    :buffer "*Helm Dictionary.app*"
-   :prompt "Word: ")
-  )
+   :prompt "Word: "))
 
 (defvar helm-osx-dictionary--source-exact-name
   (helm-build-sync-source
       "[?]"
     :candidates #'(lambda () (list (propertize helm-pattern)))
     :action #'helm-osx-dictionary--search
-    :volatile t
-    )
-  "The source of exact matching pattern."
-  )
+    :volatile t)
+  "The source of exact matching pattern.")
 
 (defvar helm-osx-dictionary--sources-by-aspell
   (helm-build-sync-source
@@ -57,10 +54,8 @@
       :candidates #'helm-osx-dictionary--get-candidates-by-aspell
       :action #'helm-osx-dictionary--search
       :fuzzy-match t
-      :volatile t
-      )
-  "Build sources by the interactive spell checker `aspell'."
-  )
+      :volatile t)
+  "Build sources by the interactive spell checker `aspell'.")
 
 ;; I learned how to get candidates (guess words) by aspell
 ;; from 'helm-words--get-candidates in helm-words
@@ -98,10 +93,7 @@
     (progn
       (insert word)
       (backward-word)
-      (osx-dictionary-search-pointer)
-      ))
-  t
-  )
+      (osx-dictionary-search-pointer))) t)
 
 (provide 'helm-osx-dictionary)
 
