@@ -80,10 +80,21 @@
     (cond ((stringp result)
     	   (list result))
     	  ((listp result)
-	   (append
-	    (car result)
-	    (nth 2 result)
-	    (nth 3 result)))
+	   (let* ((candidates
+	    	   (append
+	    	    (car result)
+	   	    (nth 2 result)
+	    	    (nth 3 result)))
+		  ;; ignore separated two words.
+		  ;; e.g. aspell guesses "aben"
+		  ;; as "ab en","ab-en" and "ab+en"
+		  ;; pcre: /^w+[-\s\+]\w+$/
+		  (words "^[_[:alnum:]]+[- +][_[:alnum:]]+$")
+		  (filterp
+	   	   (lambda (x)
+		     (if (stringp x)
+			 (string-match words x)))))
+		  (remove-if filterp candidates)))
     	  (t (list helm-pattern)))))
 
 (defun helm-osx-dictionary--search (word)
