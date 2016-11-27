@@ -36,14 +36,11 @@
   "Look a word on Dictionary.app with helm backend."
   (interactive)
   (helm
-   :sources '(
-	      helm-osx-dictionary--source-exact-name
-	      helm-osx-dictionary--sources-by-aspell
-	      )
-   :buffer "*Helm Dictionary.app*"
-   :prompt "Word: "))
+   :sources '(helm-osx-dictionary--source-by-exact-name
+	      helm-osx-dictionary--source-by-ispell)
+   :buffer "*OSX Dictionary.app*"
+   :prompt "word: "))
 
-(defvar helm-osx-dictionary--source-exact-name
   (helm-build-sync-source
       "[?]"
     :candidates #'(lambda () (list (propertize helm-pattern)))
