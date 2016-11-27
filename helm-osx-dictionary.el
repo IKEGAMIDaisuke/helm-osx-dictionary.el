@@ -101,4 +101,3 @@
 (provide 'helm-osx-dictionary)
 
 ;;; helm-osx-dictionary.el ends here
-
