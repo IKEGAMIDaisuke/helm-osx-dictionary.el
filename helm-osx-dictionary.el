@@ -21,7 +21,9 @@
 
 ;;; Code:
 
+(require 'cl)
 (require 'ispell)
+(require 'helm)
 (require 'osx-dictionary)
 
 (defgroup helm-osx-dictionary nil
