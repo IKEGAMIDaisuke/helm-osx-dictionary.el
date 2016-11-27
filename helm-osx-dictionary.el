@@ -1,10 +1,10 @@
 ;;; helm-osx-dictionary.el --- Helm extension for OSX Dictionary.app -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2016  IKEGAMI Daisuke
-;; Package-Requires ((osx-dictionary "0.2.2") (helm "1.7.8"))
 
 ;; Author: IKEGAMI Daisuke <ikegami.da@gmail.com>
-;; Keywords: mac, dictionary, helm
+;; Version: 0.1
+;; Package-Requires ((helm "2.3.2") (osx-dictionary "0.3"))
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
