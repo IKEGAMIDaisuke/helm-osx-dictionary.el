@@ -109,6 +109,15 @@
       (insert word)
       (backward-word)
       (osx-dictionary-search-pointer))) t)
+(defun helm-osx-dictionary--get-candidates-by-ispell ()
+  "Candidates by running ispell."
+  (let* (;; pattern of separated words
+	 ;; pcre: /^w+[\s]\w+$/
+	 (separated "^[_[:alnum:]]+[ ][_[:alnum:]]+$")
+	 (filterp
+	  (lambda (x)
+	    (if (stringp x) (string-match separated x)))))
+    (remove-if filterp (helm-osx-dictionary--run-ispell helm-pattern))))
 
 (provide 'helm-osx-dictionary)
 
