@@ -27,8 +27,9 @@
 (require 'osx-dictionary)
 
 (defgroup helm-osx-dictionary nil
-  "Helm extension for looking up words in OSX Dictionary.app."
-  :group 'helm)
+  "Helm interface for Dictionary.app"
+  :group 'helm-osx-dictionary)
+
 
 ;;;###autoload
 (defun helm-osx-dictionary-lookup-word ()
