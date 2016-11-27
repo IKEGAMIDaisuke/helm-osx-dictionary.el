@@ -65,13 +65,16 @@
   "Source by running ispell."
   )
 
+(defun helm-osx-dictionary--run-ispell (word)
+  "Return spelling errors by running ispell for `word'."
   (let* ((lines
 	  (with-temp-buffer
-	    (insert helm-pattern)
+	    (insert word)
 	    (ispell-set-spellchecker-params)
+	    (ispell-accept-buffer-local-defs)
 	    (ispell-call-process-region
 	     (point-min) (point-max)
-	     ispell-program-name t t nil "-a" "--guess")
+	     ispell-program-name t t nil "-a" "--guess" "--suggest")
 	    (buffer-string)))
 	 (output (nth 1 (split-string lines "\n")))
 	 (result
