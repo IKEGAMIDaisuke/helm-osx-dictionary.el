@@ -100,4 +100,8 @@
 
 (provide 'helm-osx-dictionary)
 
+;; Local Variables:
+;; indent-tabs-mode: nil
+;; End:
+
 ;;; helm-osx-dictionary.el ends here
