@@ -49,7 +49,7 @@
     :volatile t)
   "Pattern of the exact matching.")
 
-(defvar helm-osx-dictionary--sources-by-aspell
+(defvar helm-osx-dictionary--source-by-ispell
   (helm-build-sync-source
       "Candidates by aspell."
       :candidates #'helm-osx-dictionary--get-candidates-by-aspell
