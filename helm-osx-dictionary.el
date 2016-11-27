@@ -32,8 +32,8 @@
 
 
 ;;;###autoload
-(defun helm-osx-dictionary-lookup-word ()
-  "Run helm-osx-lookup."
+(defun helm-osx-dictionary ()
+  "Look a word on Dictionary.app with helm backend."
   (interactive)
   (helm
    :sources '(
