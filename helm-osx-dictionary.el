@@ -55,15 +55,16 @@
 
 (defvar helm-osx-dictionary--source-by-ispell
   (helm-build-sync-source
-      "Candidates by aspell."
-      :candidates #'helm-osx-dictionary--get-candidates-by-aspell
-      :action #'helm-osx-dictionary--search
-      :fuzzy-match t
-      :volatile t)
-  "Build sources by the interactive spell checker `aspell'.")
+      "Ispell"
+    :candidates #'helm-osx-dictionary--get-candidates-by-aspell
+    :action #'osx-dictionary--view-result
+    :fuzzy-match t
+    :volatile t
+    :requires-pattern helm-osx-dictionary-requires
+    )
+  "Source by running ispell."
+  )
 
-(defun helm-osx-dictionary--get-candidates-by-aspell ()
-  "Return candidates for a word by `aspell'."
   (let* ((lines
 	  (with-temp-buffer
 	    (insert helm-pattern)
