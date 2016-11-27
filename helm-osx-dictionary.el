@@ -28,12 +28,12 @@
 
 (defgroup helm-osx-dictionary nil
   "Helm interface for Dictionary.app"
-  :group 'helm-osx-dictionary)
+  :group 'helm)
 
 (defcustom helm-osx-dictionary-requires 3
   "Minimum length of input for starting completion."
-  :type 'integer
-  :group 'helm-osx-dictionary)
+  :group 'helm-osx-dictionary
+  :type 'integer)
 
 ;;;###autoload
 (defun helm-osx-dictionary ()
