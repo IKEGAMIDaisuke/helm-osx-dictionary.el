@@ -58,10 +58,6 @@
       :volatile t)
   "Build sources by the interactive spell checker `aspell'.")
 
-;; I learned how to get candidates (guess words) by aspell
-;; from 'helm-words--get-candidates in helm-words
-;; https://github.com/pronobis/helm-words/
-;;
 (defun helm-osx-dictionary--get-candidates-by-aspell ()
   "Return candidates for a word by `aspell'."
   (let* ((lines
