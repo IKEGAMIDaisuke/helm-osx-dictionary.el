@@ -56,7 +56,7 @@
 (defvar helm-osx-dictionary--source-by-ispell
   (helm-build-sync-source
       "Ispell"
-    :candidates #'helm-osx-dictionary--get-candidates-by-aspell
+    :candidates #'helm-osx-dictionary--get-candidates-by-ispell
     :action #'osx-dictionary--view-result
     :fuzzy-match t
     :volatile t
