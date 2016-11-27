@@ -41,12 +41,13 @@
    :buffer "*OSX Dictionary.app*"
    :prompt "word: "))
 
+(defvar helm-osx-dictionary--source-by-exact-name
   (helm-build-sync-source
       "[?]"
     :candidates #'(lambda () (list (propertize helm-pattern)))
-    :action #'helm-osx-dictionary--search
+    :action #'osx-dictionary--view-result
     :volatile t)
-  "The source of exact matching pattern.")
+  "Pattern of the exact matching.")
 
 (defvar helm-osx-dictionary--sources-by-aspell
   (helm-build-sync-source
