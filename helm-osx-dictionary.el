@@ -41,7 +41,7 @@
   (interactive)
   (helm
    :sources '(helm-osx-dictionary--source-by-exact-name
-	      helm-osx-dictionary--source-by-ispell)
+              helm-osx-dictionary--source-by-ispell)
    :buffer "*OSX Dictionary.app*"
    :prompt "word: "))
 
@@ -68,34 +68,34 @@
 (defun helm-osx-dictionary--run-ispell (word)
   "Return spelling errors by running ispell for `word'."
   (let* ((lines
-	  (with-temp-buffer
-	    (insert word)
-	    (ispell-set-spellchecker-params)
-	    (ispell-accept-buffer-local-defs)
-	    (ispell-call-process-region
-	     (point-min) (point-max)
-	     ispell-program-name t t nil "-a" "--guess" "--suggest")
-	    (buffer-string)))
-	 (output (nth 1 (split-string lines "\n")))
-	 (result
-	  ;; prevent annoying messages
-	  ;; see also the definition of 'ispell-parse-output
-	  (when (not (equal 0 (string-match "[\ra-zA-Z]" output)))
-	    (ispell-parse-output output))))
+          (with-temp-buffer
+            (insert word)
+            (ispell-set-spellchecker-params)
+            (ispell-accept-buffer-local-defs)
+            (ispell-call-process-region
+             (point-min) (point-max)
+             ispell-program-name t t nil "-a" "--guess" "--suggest")
+            (buffer-string)))
+         (output (nth 1 (split-string lines "\n")))
+         (result
+          ;; prevent annoying messages
+          ;; see also the definition of 'ispell-parse-output
+          (when (not (equal 0 (string-match "[\ra-zA-Z]" output)))
+            (ispell-parse-output output))))
     (cond ((stringp result)
-    	   (list result))
-    	  ((listp result)
-	   (append (car result) (nth 2 result) (nth 3 result)))
-    	  (t (list word)))))
+           (list result))
+          ((listp result)
+           (append (car result) (nth 2 result) (nth 3 result)))
+          (t (list word)))))
 
 (defun helm-osx-dictionary--get-candidates-by-ispell ()
   "Candidates by running ispell."
   (let* (;; pattern of separated words
-	 ;; pcre: /^w+[\s]\w+$/
-	 (separated "^[_[:alnum:]]+[ ][_[:alnum:]]+$")
-	 (filterp
-	  (lambda (x)
-	    (if (stringp x) (string-match separated x)))))
+         ;; pcre: /^w+[\s]\w+$/
+         (separated "^[_[:alnum:]]+[ ][_[:alnum:]]+$")
+         (filterp
+          (lambda (x)
+            (if (stringp x) (string-match separated x)))))
     (remove-if filterp (helm-osx-dictionary--run-ispell helm-pattern))))
 
 (provide 'helm-osx-dictionary)
