@@ -66,7 +66,7 @@
 (defvar helm-osx-dictionary--source-by-exact-name
   (helm-build-sync-source
       "[?]"
-    :candidates #'(lambda () (list (propertize helm-pattern)))
+    :candidates #'(lambda () (list helm-pattern))
     :action #'osx-dictionary--view-result)
   "Pattern of the exact matching.")
 
