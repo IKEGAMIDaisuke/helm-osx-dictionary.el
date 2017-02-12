@@ -43,7 +43,6 @@
   :type 'integer
   :package-version '(helm-osx-dictionary . "0.1"))
 
-;;;###autoload
 (defvar helm-osx-dictionary-mode-map
   (let ((map (make-sparse-keymap)))
     (define-key map (concat helm-osx-dictionary-prefix-key "l")
@@ -51,6 +50,7 @@
     map)
   "Minor mode keymap for helm-osx-dictionary mode.")
 
+;;;###autoload
 (defun helm-osx-dictionary ()
   "Look a word on Dictionary.app with helm backend."
   (interactive)
@@ -113,6 +113,7 @@
             (if (stringp x) (string-match separated x)))))
     (remove-if filterp (helm-osx-dictionary--run-ispell helm-pattern))))
 
+;;;###autoload
 (define-minor-mode helm-osx-dictionary-mode
   "Enable you to look up words in OSX dictionary with helm interface."
   :init-value nil
