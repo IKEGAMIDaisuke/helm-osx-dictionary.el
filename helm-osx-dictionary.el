@@ -75,10 +75,8 @@
     :action #'osx-dictionary--view-result
     :fuzzy-match t
     :volatile t
-    :requires-pattern helm-osx-dictionary-requires
-    )
-  "Source by running ispell."
-  )
+    :requires-pattern helm-osx-dictionary-requires)
+  "Source by running ispell.")
 
 (defun helm-osx-dictionary--run-ispell (word)
   "Return spelling errors by running ispell for `word'."
