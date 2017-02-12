@@ -33,7 +33,8 @@
 (defcustom helm-osx-dictionary-requires 3
   "Minimum length of input for starting completion."
   :group 'helm-osx-dictionary
-  :type 'integer)
+  :type 'integer
+  :package-version '(helm-osx-dictionary . "0.1"))
 
 ;;;###autoload
 (defun helm-osx-dictionary ()
