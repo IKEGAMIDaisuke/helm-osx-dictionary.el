@@ -54,11 +54,14 @@
 (defun helm-osx-dictionary ()
   "Look a word on Dictionary.app with helm backend."
   (interactive)
-  (helm
-   :sources '(helm-osx-dictionary--source-by-exact-name
-              helm-osx-dictionary--source-by-ispell)
-   :buffer "*OSX Dictionary.app*"
-   :prompt "word: "))
+  (let ((default (thing-at-point 'word)))
+    (helm
+     :sources '(helm-osx-dictionary--source-by-exact-name
+                helm-osx-dictionary--source-by-ispell)
+     :buffer "*OSX Dictionary.app*"
+     :prompt "word: "
+     :preselect (and default default)
+     :input default)))
 
 (defvar helm-osx-dictionary--source-by-exact-name
   (helm-build-sync-source
