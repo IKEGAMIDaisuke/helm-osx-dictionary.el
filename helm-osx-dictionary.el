@@ -64,8 +64,7 @@
   (helm-build-sync-source
       "[?]"
     :candidates #'(lambda () (list (propertize helm-pattern)))
-    :action #'osx-dictionary--view-result
-    :volatile t)
+    :action #'osx-dictionary--view-result)
   "Pattern of the exact matching.")
 
 (defvar helm-osx-dictionary--source-by-ispell
