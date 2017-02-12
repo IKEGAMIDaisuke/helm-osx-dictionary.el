@@ -1,6 +1,6 @@
 ;;; helm-osx-dictionary.el --- Helm extension for OSX Dictionary.app -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2016  IKEGAMI Daisuke
+;; Copyright (C) 2016-2017  IKEGAMI Daisuke
 
 ;; Author: IKEGAMI Daisuke <ikegami.da@gmail.com>
 ;; Version: 0.1
