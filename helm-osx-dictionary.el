@@ -46,12 +46,12 @@
 (defvar helm-osx-dictionary-mode-map
   (let ((map (make-sparse-keymap)))
     (define-key map (concat helm-osx-dictionary-prefix-key "l")
-      'helm-osx-dictionary)
+      'helm-osx-dictionary-look-up-word)
     map)
   "Minor mode keymap for helm-osx-dictionary mode.")
 
 ;;;###autoload
-(defun helm-osx-dictionary ()
+(defun helm-osx-dictionary-look-up-word ()
   "Look a word on Dictionary.app with helm backend."
   (interactive)
   (let ((default (thing-at-point 'word)))
