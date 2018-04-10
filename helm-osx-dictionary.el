@@ -58,7 +58,7 @@
     (helm
      :sources '(helm-osx-dictionary--source-by-exact-name
                 helm-osx-dictionary--source-by-ispell)
-     :buffer "*OSX Dictionary.app*"
+     :buffer "*helm OSX Dictionary.app*"
      :prompt "word: "
      :preselect (and default default)
      :input default)))
