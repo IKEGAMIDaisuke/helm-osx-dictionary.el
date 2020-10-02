@@ -1,6 +1,8 @@
 About
 ====
 
+![screenshot](image/helm-osx-dictionary.png)
+
 helm-osx-dictionary.el is [helm interface](https://github.com/emacs-helm/helm) for
 [osx-dictionary.el](https://github.com/xuchunyang/osx-dictionary.el).
 
