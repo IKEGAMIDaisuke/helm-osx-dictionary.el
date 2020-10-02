@@ -6,7 +6,7 @@ helm-osx-dictionary.el is [helm interface](https://github.com/emacs-helm/helm) f
 
 Candidates, which `ispell` command corrects, are passed to the interface.
 
-Similar project
-===============
+Similar project(s)
+====
 
 [helm-dictionary](https://github.com/emacs-helm/helm-dictionary).
